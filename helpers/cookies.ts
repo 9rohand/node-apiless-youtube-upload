@@ -1,5 +1,14 @@
-import {IWebDriverCookie} from 'selenium-webdriver'
+// import {IWebDriverCookie} from 'selenium-webdriver'
 import fs from 'fs'
+type IWebDriverCookie = {
+  name: string
+  value: string
+  domain?: string
+  path?: string
+  expiry?: number
+  secure?: boolean
+  httpOnly?: boolean
+}
 
 export class Cookies {
     private readonly items: IWebDriverCookie[]

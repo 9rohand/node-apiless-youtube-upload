@@ -123,7 +123,7 @@ const fetchCookies = async (driver: WebDriver): Promise<Cookies> => {
 
     const webDriverCookies = await driver.manage().getCookies()
 
-    return new Cookies(webDriverCookies)
+    return new Cookies(webDriverCookies as any)
 }
 
 export default async (): Promise<Cookies> => {

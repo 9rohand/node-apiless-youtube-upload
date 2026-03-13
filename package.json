@@ -5,11 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gladiatortoise/node-apiless-youtube-upload.git"
+    "url": "https://github.com/9rohand/node-apiless-youtube-upload.git"
   },
   "keywords": [
     "youtube",
@@ -28,7 +29,7 @@
     "windows"
   ],
   "prepare": "tsc",
-  "author": "gladiatortoise",
+  "author": "9rohand",
   "license": "ISC",
   "dependencies": {
     "chrome-location": "^1.2.1",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@types/selenium-webdriver": "^4.1.14",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "typescript": "^5.9.3"
   }
 }

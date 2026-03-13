@@ -30,7 +30,7 @@ export const makeWebDriver = async (args: DriverArgs = argDefaults): Promise<Web
         chromeOptions.addArguments(`--user-data-dir=${args.userDataDir}`)
     }
     if (args.headless) {
-        chromeOptions.headless()
+        chromeOptions.addArguments('--headless=new')
     }
     if (args.fullsize) {
         // default size (sometimes) causes uploading page's "Done" button to be out of viewport,
@@ -39,10 +39,12 @@ export const makeWebDriver = async (args: DriverArgs = argDefaults): Promise<Web
     }
 
     const webdriverPath = await ensureChromedriver()
-    chrome.setDefaultService(new chrome.ServiceBuilder(webdriverPath).build())
+    const service = new chrome.ServiceBuilder(webdriverPath)
+    // chrome.setDefaultService(new chrome.ServiceBuilder(webdriverPath).build())
 
     return new Builder()
         .withCapabilities(Capabilities.chrome())
         .setChromeOptions(chromeOptions)
+        .setChromeService(service)
         .build()
 }
